@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+    {%block content%}
+
+</form>
+{% for user in users %}
+    <ul><li><a href='/blog?user={{user.email}}'>{{user.email}}</a></li></ul>
+{%endfor%}
+</form>
+
+{%endblock%}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+    {%block content%}
+
+</form>
+    {% for user in users %}
+        <hr/><a href='/blog?user={{user.email}}'>{{user.email}}</a>   
+        {% if blogs|length == 0 %}
+            <p>No blogs Yet</p>
+        {% else %}
+        <ul>
+            {% for blog in blogs %}
+                {%if user.id == blog.owner_id%}
+                {{blog.blog_title}}
+                <li>{{blog.blog_body}}</li>
+                {%endif%}
+            {% endfor %}
+        {%endif%}
+        </ul>
+    {%endfor%}
+
+    
+    
+    {%endblock%}

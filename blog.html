@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+    {%block content%}
+
+    <form>
+    {% for blog in blogs %}
+        {% if blogs|length == 0 %}
+            <h5>No blogs Yet</h5>
+        {% else %}
+         
+        <hr/><a href='/blog?id={{blog.id}}'>{{blog.blog_title}}</a>
+        <h1>{{blog.blog_body}}</h1>
+    <h3>Written by <a href="/blog?user={{user}}">{{user}}</a></h3>
+        {%endif%}
+    {%endfor%}
+    </form>
+    
+    
+    {%endblock%}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{Title}}</title>
+       
+    </head>
+    <style>
+        .error { color:red;}
+    
+        .header {
+            padding: 30px;
+            font-size: 40px;
+            text-align: center;
+            background: white;}
+        .topright {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            font-size: 20px;
+        }
+        .topleft {
+            position: absolute;
+            top: 8px;
+            left: 16px;
+            font-size: 20px;
+            }
+
+    </style>
+    <body>
+        <nav>
+            <div class="topleft">
+                <a href='/'>home</a> | <a href='/allposts'>all posts</a>|
+                {% if 'email' in session %}    
+            |       <a href='/newpost'>New Post</a>
+                {%else%}
+                     <a href='/login'>New Post</a>
+                {%endif%}
+            </div>
+            <div class ="topright">
+                {% if 'email' in session %}
+                    {{ session['email'] }}
+                    <a href ='/logout' >logout</a>
+                {% else %}
+                    <a href="/login">login</a> | <a href="/logout">logout</a>
+                {% endif %}
+            </div>
+                              
+            
+            <h3><center class="header">Blog Users!</center></h3>
+            
+        </nav>
+            
+    
+
+        {%block content%}
+        {%endblock%}
+    </body>
+</html>
